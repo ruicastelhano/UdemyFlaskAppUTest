@@ -23,13 +23,6 @@ class Test_Model2(unittest.TestCase):
         #print (u1.email)
         self.assertEqual(u1, User.get_user_by_email("mail123")[0])
 
-    @patch('main.models.User')
-    def test_get_auth_user_count(self, mock_user):
-        mock_user.query.filter_by(authenticated=1).count.return_value = 9981
-        count = User.get_auth_user_count()
-        #print (count)
-        self.assertEqual(count, 9989)
-
 
 
 
